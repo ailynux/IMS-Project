@@ -1,5 +1,11 @@
 # Inventory Management System
 
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ailynux.netlify.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+## 🛠 Skills used
+Javascript, HTML, CSS, SQL, React....
+
 ## Project Plan
 
 ### 1. Define Requirements
@@ -106,3 +112,7 @@
   - Deploy front-end to a static site hosting service or as part of the back-end deployment.
 
 **This plan is to help me structure the project and ensure I cover all necessary aspects.**
+
+## Authors
+
+- [@ailynux](https://www.github.com/ailynux)
