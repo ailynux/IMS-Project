@@ -92,3 +92,5 @@
 1. Document Requirements: Create a detailed requirements document outlining all the features, user roles, and functionalities.
 2. Create Wireframes: Sketch out wireframes for the main screens (Login, Inventory List, Item Details, Reports, etc.).
 3. Set Up Project Management: Use a project management tool like Jira, Trello, or GitHub Projects to organize tasks and track progress.
+
+   # PROJECT WIRE FRAMES ON ANOTHER DOC ---> 
