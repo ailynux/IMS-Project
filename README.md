@@ -6,6 +6,13 @@
 ## 🛠 Skills used
 Javascript, HTML, CSS, SQL, C# 
 
+**SETUP:** 
+<br>
+- IDE: Visual Studio
+- Backend: ASP.NET Core with Entity Framework Core for server-side development (C#)
+- Frontend: Angular for building the user interface
+- Database: SQL Server or PostgreSQL for data storage
+
 ## Project Plan
 
 ### 1. Define Requirements
