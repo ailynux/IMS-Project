@@ -4,7 +4,7 @@
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ailynux.netlify.app/)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
 ## 🛠 Skills used
-Javascript, HTML, CSS, SQL, React....
+Javascript, HTML, CSS, SQL, C# 
 
 ## Project Plan
 
