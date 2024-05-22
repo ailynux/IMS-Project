@@ -188,3 +188,5 @@
 - Choose a Wireframing Tool: Select a tool to create the wireframes.
 - Create Wireframes: Design the wireframes for each screen as outlined above.
 - Review and Iterate: Share the wireframes for feedback and make any necessary adjustments.
+
+  5/21/24 working on drawing wireframes <-->
