@@ -190,3 +190,42 @@
 - Review and Iterate: Share the wireframes for feedback and make any necessary adjustments.
 
   5/21/24 working on drawing wireframes <-->
+
+# FLOW CHART 
+```bash
+Start
+|
+Login Screen
+|\
+| \---[Valid credentials]---> Dashboard
+|  \
+|   \---[Register]-----------> Registration Process
+|
+Dashboard
+|\
+| \---[Inventory]------------> Inventory Section
+|  \
+|   \---[Reports]-------------> Reports Section
+|    \
+|     \---[User Management]---> User Management Section
+|
+Inventory Section
+|\
+| \---[View Inventory List]---> Inventory List
+|  \
+|   \---[Add/Edit Item]--------> Add/Edit Item Screen
+|    \
+|     \---[View Item Details]--> Item Details Screen
+|
+Reports Section
+|\
+| \---[Generate Reports]------> Select Report Type
+|  \
+|   \---[Export Options]-------> Choose Export Format
+|
+User Management Section
+ \
+  \---[Admin Only]------------> Manage Users (Add, Edit, Delete)
+|
+End
+```
