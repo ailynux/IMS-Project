@@ -1,5 +1,5 @@
 # Inventory Management System
-## working on >> updates >> 5/30/24 >> working >> reading >> adding >> another day working
+## working on >> updates >> 5/30/24 >> working >> reading >> adding >> another day working>> commit 2m
 https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-8.0
 ## 🔗 Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ailynux.netlify.app/)
