@@ -125,9 +125,191 @@ dotnet ef database update
 - Run your application and use a tool like Postman or Swagger to test the CRUD operations.
 By following these steps, I will have set up a foundational database schema and configured my application to interact with it using Entity Framework Core. You’ll also have ensured that your application can perform essential database operations, paving the way for further development.
 
+### Setting Up Your Inventory Management System
+This guide provides a step-by-step process for setting up SQL Server, ASP.NET Core, and Entity Framework Core to develop an Inventory Management System.
 
+### Download SQL Server
 
+- **SQL Server Express**: This is free and sufficient for development and small to medium-sized applications.
+  - Download it from the [SQL Server Express Download Page](https://www.microsoft.com/en-us/sql-server/sql-server-downloads).
+  - Follow the instructions to download and install SQL Server Express.
 
+### SQL Server Management Studio (SSMS)
 
+- **SSMS** is a graphical tool for managing SQL infrastructure, useful for configuring, monitoring, and administering SQL Server instances.
+  - Download SSMS from the [SSMS Download Page](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms).
+
+## Setting Up ASP.NET Core Project
+
+### Download and Install Visual Studio
+
+- **Visual Studio**: An IDE that supports development for various programming languages and frameworks, including ASP.NET Core.
+  - Download from the [Visual Studio Download Page](https://visualstudio.microsoft.com/downloads/).
+  - Ensure to select the **ASP.NET and web development** workload during installation.
+
+### Create a New ASP.NET Core Project
+
+1. Open Visual Studio and select "Create a new project."
+2. Choose "ASP.NET Core Web Application" and click Next.
+3. Enter a project name and location, then click Create.
+4. Select the appropriate version of ASP.NET Core, and choose the template (e.g., Web API or MVC, depending on your project requirements).
+
+## Integrating Entity Framework Core
+
+### Add Entity Framework Core Packages
+
+- In your ASP.NET Core project, install the following packages:
+  - `Microsoft.EntityFrameworkCore`
+  - `Microsoft.EntityFrameworkCore.SqlServer` (if using SQL Server)
+  - `Microsoft.EntityFrameworkCore.Tools` for migrations.
+- Install these via NuGet Package Manager in Visual Studio. Right-click on the project → Manage NuGet Packages → Search and install the above packages.
+
+### Initialize Your Database Using EF Migrations
+
+1. Open the Package Manager Console in Visual Studio (View → Other Windows → Package Manager Console).
+2. Run `Add-Migration InitialCreate` to scaffold a migration and create the initial set of tables defined in your DbContext.
+3. Run `Update-Database` to apply the migration to the database.
+
+## Testing SQL Connectivity
+
+### Develop a Basic CRUD Controller
+
+- Implement a controller in your ASP.NET Core project that performs basic Create, Read, Update, and Delete operations on your database. This tests the connectivity and functionality of your SQL setup and Entity Framework integration.
+
+### Run and Test Your Application
+
+- Use Visual Studio’s built (in IIS Express to run your application.
+- Test the API endpoints using tools like Postman or Swagger (if enabled) to ensure that your application can communicate effectively with SQL Server.
+
+By following these steps, you’ll have a fully operational development environment set up for working with SQL Server, ASP.NET Core, and Entity Framework Core, allowing you to proceed with building and testing your Inventory Management System.
+
+### To develop a basic CRUD (Create, Read, Update, Delete) controller in an ASP.NET Core project using Entity Framework Core, follow these steps:
+
+### Step 1: Set Up Your Model Classes
+First, ensure you have model classes that correspond to the tables in your database. For example, if you have a Users table, you should have a User model class.
+- Here’s a simple example of what a User model might look like:
+
+```csharp
+public class User
+{
+    public int UserId { get; set; }
+    public string Username { get; set; }
+    public string PasswordHash { get; set; }
+    public string Role { get; set; }
+}
+
+```
+
+### Step 2: Create a Controller
+Add a New Controller:
+
+- In Visual Studio, right-click on the Controllers folder in your ASP.NET Core project.
+- Select Add → Controller.
+- Choose API Controller with actions, using Entity Framework.
+- Select your model class (User in this case) and your DbContext class (AppDbContext).
+- Click Add. This will scaffold a controller with CRUD actions.
+- Review the Scaffolded Controller:
+
+#### The scaffolded controller will include actions for GET, POST, PUT, DELETE, etc., which interact with the database via Entity Framework.
+- Here’s an example of what the scaffolded controller might look like:
+
+```csharp
+[Route("api/[controller]")]
+[ApiController]
+public class UsersController : ControllerBase
+{
+    private readonly AppDbContext _context;
+
+    public UsersController(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    // GET: api/Users
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<User>>> GetUsers()
+    {
+        return await _context.Users.ToListAsync();
+    }
+
+    // GET: api/Users/5
+    [HttpGet("{id}")]
+    public async Task<ActionResult<User>> GetUser(int id)
+    {
+        var user = await _context.Users.FindAsync(id);
+
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        return user;
+    }
+
+    // POST: api/Users
+    [HttpPost]
+    public async Task<ActionResult<User>> PostUser(User user)
+    {
+        _context.Users.Add(user);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction("GetUser", new { id = user.UserId }, user);
+    }
+
+    // PUT: api/Users/5
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutUser(int id, User user)
+   
+        {
+            return BadRequest();
+        }
+
+        _context.Entry(user).State = EntityState.Modified;
+
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!UserExists(id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        return NoContent();
+    }
+
+    // DELETE: Grewpi/Users/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteUser(int id)
+    {
+        var user = await _context.Users.FindAsync(id);
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        _context.Users.Remove(user);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    private bool UserExists(int id)
+    {
+        return _context.Users.Any(e => e.UserId == id);
+    }
+}
+```
+
+### Step 3: Test the Controller
+- Run Your Application: Run your application using IIS Express in Visual Studio.
+- Use tools like Postman or Swagger to make requests to the API endpoints and test the CRUD operations.
 
 
