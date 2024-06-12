@@ -68,8 +68,16 @@ CREATE TABLE Transactions (
 ```
 ## Step 2: Set Up Entity Framework Core
 1. Add Entity Framework Core to Your Project:
+Integrate Entity Framework Core with your ASP.NET Core project:
 
-- Open Visual Studio, and in your ASP.NET Core project, install the necessary NuGet packages for Entity Framework Core. You need Microsoft.EntityFrameworkCore, Microsoft.EntityFrameworkCore.SqlServer (or the package for PostgreSQL if you choose), and Microsoft.EntityFrameworkCore.Tools for migrations.
+### Add NuGet Packages:
+
+- Microsoft.EntityFrameworkCore
+- Microsoft.EntityFrameworkCore.SqlServer
+- Microsoft.EntityFrameworkCore.Tools for migrations
+#### Remember to:
+- Open Visual Studio, and in your ASP.NET Core project, install the necessary NuGet packages for Entity Framework Core.
+-  You need Microsoft.EntityFrameworkCore, Microsoft.EntityFrameworkCore.SqlServer (or the package for PostgreSQL if you choose), and Microsoft.EntityFrameworkCore.Tools for migrations.
   
 2. Define DbContext:
 - Create a new class file named AppDbContext.cs and define your DbContext:
